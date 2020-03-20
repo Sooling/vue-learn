@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app1">
+        <!-- 使用组件 -->
+        <my-cmp></my-cmp>
+        <myother-cmp></myother-cmp>
+    </div>
+
+    <div id="app2">
+        <!-- <my-cmp></my-cmp> -->
+    </div>
+
+    <script src="../vue.js"></script>
+    <script>
+        //注册局部组件的语法糖
+
+        let app1 = new Vue({
+            el: "#app1",
+            components: {
+                'my-cmp': {
+                    template: '<div><h1>组件名称</h1><div>组件内容</div></div>'
+                },
+                'myother-cmp': { //注意：系统命名法做好不要出现大写字母！
+                    template: `<div><h1>另一个组件名称</h1><div>另一个组件内容</div></div>` //反引号`和单引号'都可以
+                }
+            }
+        });
+
+        const app2 = new Vue({
+            el: "#app2"
+        });
+    </script>
+</body>
+
+</html>

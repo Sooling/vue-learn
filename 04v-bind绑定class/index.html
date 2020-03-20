@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h3 class="a" :class="{active: isActive}">{{firstName + lastName}}</h3>
+        <!--两个class的值会被合并-->
+        <button @click="changeStyle">change style</button>
+        <img v-bind:src="imgUrl" alt="">
+        <!--v-bind,此时imgUrl就相当于一个变量，会动态改变-->
+        <a :href="baidu_href">百度一下</a>
+        <h4 :class="getClass()">hello</h4>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                firstName: "汪",
+                lastName: "国辉",
+                counter: 100,
+                imgUrl: "timg.jpg",
+                baidu_href: "https://wwww.baidu.com",
+                isActive: true
+            },
+            methods: {
+                changeStyle: function() {
+                    this.isActive = !this.isActive;
+                },
+                getClass: function() {
+                    return {
+                        active: this.isActive
+                    };
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

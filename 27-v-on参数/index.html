@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"><button @click="add">button {{count}}</button></div>
+    <script src="../vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    count: 0
+                }
+            },
+            methods: {
+                add: function(event) {
+                    this.count++;
+                    console.log(event.type);
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

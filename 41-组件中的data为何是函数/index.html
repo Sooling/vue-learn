@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app1">
+        <!-- 使用组件 -->
+        <myother-cmp></myother-cmp>
+        <myother-cmp></myother-cmp>
+        <myother-cmp></myother-cmp>
+        <myother-cmp></myother-cmp>
+    </div>
+
+    <template id="myother_cmp">
+        <div>
+            <button @click="btnClick">数量加1</button>
+            <div>当前数目：{{count}}</div>
+        </div>
+    </template>
+
+    <script src="../vue.js"></script>
+    <script>
+        const counter = {
+            count: 0
+        };
+
+        let app1 = new Vue({
+            el: "#app1",
+            components: {
+                'myother-cmp': { //注意：系统命名法最好不要出现大写字母！`  
+                    template: "#myother_cmp",
+                    data() { //为何组件中的data是函数？
+                        //return { //为了每次使用组件都返回新的数据对象，这样每个组件的数据独立储存，互不影响
+                        //count: 0                            
+                        //}
+                        return counter; //如果每次都返回同一个对象counter，那么每个组件的数据都是一样的
+                    },
+                    methods: {
+                        btnClick() { //定义按钮的方法
+                            this.count++; //这里的this指每个组件对象
+                        }
+                    },
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

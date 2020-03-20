@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .aaaa {
+            color: red;
+        }
+        
+        .bbbb {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div :class="[active,but]" id="app">{{message}}</div>
+    <script src="../vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "你好啊，大国辉！",
+                active: "aaaa",
+                but: "bbbb"
+            }
+        });
+    </script>
+</body>
+
+</html>

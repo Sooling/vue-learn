@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h3>{{firstName + lastName}}</h3>
+        <h3>{{firstName + " " + lastName}}</h3>
+        <h4>{{counter * 2}}</h4>
+        <!--大括号语法还可以进行字符串的拼接操作，以及运算-->
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                firstName: "汪",
+                lastName: "国辉",
+                counter: 100
+            }
+        });
+    </script>
+</body>
+
+</html>

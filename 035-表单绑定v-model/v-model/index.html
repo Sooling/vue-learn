@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model.lazy.trim="message">
+        <p>{{message}}</p>
+				<!-- 表单数据绑定message，表单value值改变，data中的值也会随之改变，然后p标签中的数据改变，以此实现数据的双向绑定 -->
+    </div>
+    <script src="../../vue.js"></script>
+		<script type="text/javascript">
+			const app = new Vue({
+				el: "#app",
+				data() {
+					return {
+						message: ""
+					}
+				},
+			});
+		</script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!--值是字符串-->
+        <h3 :style="{fontSize: '16px'}">{{message}}</h3>
+
+        <!--值是变量-->
+        <h3 :style="[f,b]">{{message}}</h3>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "你好啊！",
+                fontSize: "20px",
+                bgColor: "#999",
+                f: {
+                    fontSize: "20px"
+                },
+                b: {
+                    backgroundColor: "#999"
+                }
+            },
+            methods: {
+
+            }
+        });
+    </script>
+</body>
+
+</html>

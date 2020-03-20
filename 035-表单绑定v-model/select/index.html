@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="app">
+			<!-- 单个选项 -->
+			<select name="my_select" id="my_select" v-model="mySelect">
+				<option value="香蕉">香蕉</option>
+				<option value="苹果">苹果</option>
+				<option value="草莓">草莓</option>
+			</select>
+			<p>我喜欢的水果：{{mySelect}}</p>
+			
+			<!-- 多个选项 -->
+			<select name="my_selects" id="my_selects" multiple="multiple" v-model="mySelects">
+				<option value="张三">张三</option>
+				<option value="李四">李四</option>
+				<option value="王五">王五</option>
+			</select>
+			<p>我选择的人物：{{mySelects}}</p>
+		</div>
+		
+		<script src="../../vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const app = new Vue({
+				el: "#app",
+				data(){
+					return{
+						mySelect: "",
+						mySelects: []
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

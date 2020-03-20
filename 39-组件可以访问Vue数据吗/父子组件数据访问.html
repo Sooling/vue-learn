@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <parent-cmp></parent-cmp>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        //创建子组件
+        const child_cmp = Vue.extend({
+            template: `
+            <div>
+                <h2>子组件</h2>
+                <div>{{c}}</div>
+            </div>`,
+            data() { //为子组件添加数据
+                return {
+                    c: "this is child"
+                }
+            }
+        });
+
+        //创建父组件
+        const parent_cmp = Vue.extend({
+            template: `
+            <div>
+                <h2>父组件</h2>
+                <child-cmp></child-cmp>
+            </div>            
+            `, //这一步不可少，为什么非要写在div里面？难道是从结构上分父子组件？
+
+            //注册子组件
+            components: {
+                "child-cmp": child_cmp
+                    // data() {
+                    //     return {
+                    //         c: "this is child"
+                    //     }
+                    // },
+            }
+        });
+
+        //创建Vue实例化对象，并注册父组件
+        const app = new Vue({
+            el: "#app",
+            components: {
+                "parent-cmp": parent_cmp
+                    // data() {
+                    //     return {
+                    //         p: "this is parent"
+                    //     }
+                    // },
+            }
+        });
+
+        //结论：
+        //子组件是不能引用父组件或者Vue实例的数据的。
+
+        //如何给组件添加数据？正式写法和语法糖写法
+        //形式上：与template并行书写
+    </script>
+</body>
+
+</html>

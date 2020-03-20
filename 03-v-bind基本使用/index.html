@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h3>{{firstName + lastName}}</h3>
+        <img v-bind:src="imgUrl" alt="">
+        <!--v-bind,此时imgUrl就相当于一个变量，会动态改变-->
+        <a :href="baidu_href">百度一下</a>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                firstName: "汪",
+                lastName: "国辉",
+                counter: 100,
+                imgUrl: "timg.jpg",
+                baidu_href: "https://wwww.baidu.com"
+            }
+        });
+    </script>
+</body>
+
+</html>

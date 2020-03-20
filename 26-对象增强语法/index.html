@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //对象增强语法即：属性和方法的简化写法
+
+        let name = "Tom";
+        let age = 23;
+
+        //ES6之前的写法
+        let obj1 = {
+            name: name,
+            age: age
+        };
+
+        console.log(obj1);
+
+        //ES6之后的写法
+        let obj2 = {
+            name,
+            age
+        };
+
+        console.log(obj2);
+
+        //方法ES6之前的写法
+        let obj3 = {
+            test: function() {
+                console.log("obj3");
+            }
+        };
+        obj3.test();
+
+        //方法ES6之后的写法
+        let obj4 = {
+            test() {
+                console.log("obj4");
+            }
+        };
+        obj4.test();
+    </script>
+</body>
+
+</html>

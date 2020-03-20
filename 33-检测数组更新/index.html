@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in movies">{{item}}</li>
+        </ul>
+        <li>---------------</li>
+        <li v-for="(item,index) in movies" ::key="index">{{index+1}}. {{item}}</li>
+        <button @click="UpdadaData">插入</button>
+        <br />
+        <button @click="rev">反转</button>
+        <br />
+        <button @click="splice">移除第五个及其后面的</button>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    movies: ["超人", "蜘蛛侠", "钢铁侠", "浩克"]
+                }
+            },
+            methods: {
+                //push
+                UpdadaData: function() {
+                    this.movies.push("盗梦空间", "我们俩");
+
+                    //蜘蛛侠改成海贼王
+                    this.movies[1] = "海贼王";
+                    console.log(this.movies.push);
+                },
+
+                //reverse
+                rev: function() {
+                    this.movies.reverse();
+                },
+
+                //splice
+                splice: function() {
+                    //this.movies.splice(4);
+                    //移除第五项及其后面的
+
+                    this.movies.splice(1, 2);
+                    //第二个参数指长度，即个数
+                }
+            },
+        });
+
+        //vue中的检测数组更新方法不是原生的js方法
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 单个单选框 -->
+			<!-- v-model即为布尔值。此时input的value并不影响v-model的值。 -->
+				
+				<input type="checkbox" name="xieyi" v-model="checked" id="check"/><label for="check">同意协议</label>
+			
+			<p>是否同意协议：{{checked}}</p>
+			
+			<!-- 多个多选框 -->
+			<input type="checkbox" value="篮球" v-model="hobbies"><lable>篮球</lable>
+			<input type="checkbox" value="足球" v-model="hobbies"><lable>足球</lable>
+			<input type="checkbox" value="排球" v-model="hobbies"><lable>排球</lable>
+			<p>我的爱好：{{hobbies}}</p>
+		</div>
+		
+		
+		
+		<script src="../../vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const app = new Vue({
+				el: "#app",
+				data(){
+					return{
+						checked: true,
+						hobbies: []
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

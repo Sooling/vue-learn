@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+        <!-- 使用组件 -->
+        <my-cmp></my-cmp>
+        <my-cmp></my-cmp>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        //创建和注册组件要写在实例化Vue对象前面
+
+        //1.创建组件 或 创建模板
+        const myComponent = Vue.extend({
+            template: `
+            <div>
+                <h1>组件名称</h1>
+                <div>组件内容</div>
+            </div>`
+        });
+
+        //2.注册组件 或 给组件起名字
+        Vue.component('my-cmp', myComponent);
+
+        const app = new Vue({
+            el: "#app"
+        });
+    </script>
+</body>
+
+</html>

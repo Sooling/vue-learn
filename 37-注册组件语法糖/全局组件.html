@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app1">
+        <!-- 使用组件 -->
+        <my-cmp></my-cmp>
+    </div>
+
+    <div id="app2">
+        <my-cmp></my-cmp>
+    </div>
+
+    <script src="../vue.js"></script>
+    <script>
+        //注册全局组件的语法糖
+        //其实就是将创建组件和注册组件合二为一
+
+        Vue.component('my-cmp', {
+            template: `
+            <div>
+                <h1>组件名称</h1>
+                <div>组件内容</div>
+            </div>`
+        });
+				//两个参数，组件标签名（字符串），组件模板（对象）
+
+        const app1 = new Vue({
+            el: "#app1"
+        });
+
+        const app2 = new Vue({
+            el: "#app2"
+        });
+    </script>
+</body>
+
+</html>

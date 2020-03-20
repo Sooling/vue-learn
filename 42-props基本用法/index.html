@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <my-cmp :movies="cmovies"></my-cmp>
+        <!-- <my-cmp :message="cmessage" :movies="cmovies"></my-cmp> -->
+        <!-- 2.传递数据：data中数据传递到props中 -->
+        <!-- 如果没有:，那么""cmessage"会被当作字符串传给message -->
+    </div>
+
+    <!-- 模板 -->
+    <template id="myCmp">
+        <div>
+            <h1>显示信息：{{message}}</h1>
+            <ul><li v-for="(item,index) in movies">{{item}}</li></ul>
+        </div>
+    </template>
+
+    <script src="../vue.js"></script>
+
+    <script>
+        //Vue实例
+        const app = new Vue({
+            el: "#app",
+            data() { //实例中的数据
+                return {
+                    //cmessage: "this is message",
+                    cmessage: "",
+                    cmovies: []
+                }
+            },
+            components: { //局部组件，语法糖写法
+                "my-cmp": {
+                    template: "#myCmp",
+                    //props: ["message", "movies"]
+                    props: {
+                        //类型的限制
+                        // message: String,
+                        // movies: Array
+                        message: {
+                            type: String, //类型为字符串
+                            default: "aaaaa", //没有给message传递值时给的默认值
+                            required: true //此属性要求message是必须要被传给数据的
+                        },
+                        movies: {
+                            type: Array,
+                            default: "aaaaa", //default也可以是一个函数
+                            required: true //此属性要求message是必须要被传给数据的
+                        }
+                    }
+                }
+            }
+        });
+
+        //props过程
+        //1.书写数据
+        //2.传递数据：data中数据传递到props中
+        //3.显示数据：props中的数据显示到页面
+    </script>
+</body>
+
+</html>

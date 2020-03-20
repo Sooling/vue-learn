@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app1">
+        <!-- 使用组件 -->
+        <myother-cmp></myother-cmp>
+    </div>
+
+    <template id="myother_cmp">
+        <div>
+            <h1>另一个组件名称</h1>
+            <div>消息：{{message}}</div>
+            <!-- 显示this is another message 访问的是组件对象中的数据！ -->
+        </div>
+    </template>
+
+    <script src="../vue.js"></script>
+    <script>
+        //注册局部组件的语法糖
+
+        let app1 = new Vue({
+            el: "#app1",
+            data() {
+                return {
+                    message: "this is message"
+                }
+            },
+            components: {
+                'myother-cmp': { //注意：系统命名法最好不要出现大写字母！`  
+                    template: "#myother_cmp",
+                    data() {
+                        return {
+                            message: "this is another message"
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

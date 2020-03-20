@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h3 v-if="source>=90">优秀</h3>
+        <h3 v-else-if="source>=70 && source<=89">良好</h3>
+        <h3 v-else="source<=69">差</h3>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    source: 69
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

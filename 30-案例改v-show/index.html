@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <span v-show="type==='user'">
+            <label for="">用户名登陆</label>
+            <input type="text" placeholder="请输入用户名" key="user-input">
+        </span>
+        <span v-show="type==='email'">
+            <label for="">邮箱登陆</label>
+            <input type="text" placeholder="请输入邮箱" key="email-input">
+        </span>
+        <button @click="handleToggle">切换登录类型</button>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    type: "user"
+                }
+            },
+            methods: {
+                handleToggle() {
+                    this.type = this.type === "user" ? "email" : "user";
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

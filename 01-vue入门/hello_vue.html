@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h2>{{ message }}</h2>
+			<h3>{{ name }}</h3>
+			<!-- 这种双大括号语法有什么好处呢？可以做到界面和数据完全分离 -->
+		</div>
+		<script type="text/javascript">
+			//es6定义变量
+			//let 变量  const 常量
+			const app = new Vue( {
+				el: "#app",	//用于挂载要管理的元素
+				data: {//定义数据
+					message: "你好啊，大国辉！",
+					name: "大国辉"
+				},
+			} );
+			
+			//以前原生js的编程范式：命令式编程，一步一步按照命令来
+			//vue属于声明式编程
+		</script>
+	</body>
+</html>

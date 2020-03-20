@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        书籍的总价值：{{totalPrice}}元。
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    books: [{
+                        name: "杀死一只知更鸟",
+                        price: 20,
+                        count: 2
+                    }, {
+                        name: "朱光潜谈美",
+                        price: 14,
+                        count: 4
+                    }, {
+                        name: "CSS世界",
+                        price: 30,
+                        count: 1
+                    }]
+                }
+            },
+            computed: {
+                totalPrice() {
+                    return this.books.reduce(function(total, item) {
+                        return total + item.price * item.count;
+                    }, 0);
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

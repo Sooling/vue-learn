@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" :value="message" v-on:input="message = $event.target.value">
+				<!-- v-model原理 -->
+				<!-- 1.value属性绑定data中的message，也是说value的值随着message的改变而改变 -->
+				<!-- 2.绑定input事件，让message的值随着输入的value的值的改变而改变 -->
+        <p>{{message}}</p>
+    </div>
+    <script src="../../vue.js"></script>
+		<script type="text/javascript">
+			const app = new Vue({
+				el: "#app",
+				data() {
+					return {
+						message: ""
+					}
+				},
+			});
+		</script>
+</body>
+
+</html>

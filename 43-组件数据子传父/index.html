@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 父组件模板 -->
+    <div id="app">
+
+        <!-- 父组件接收事件 -->
+        <!-- cmpClick默认已经传入参数 item，因为是自定义事件所以没有event-->
+        <cmp @item-click="cmpClick"></cmp>
+    </div>
+
+    <!-- 子组件模板 -->
+    <template id="cmp">
+        <div>
+            <button v-for="(item,index) in categories" @click="btnClick(item)">{{item.name}}</button>
+        </div>
+    </template>
+
+    <script src="../vue.js"></script>
+    <script>
+        const cmp = {
+            template: "#cmp",
+            data() { //子组件数据
+                return {
+                    categories: [{
+                        id: "aaa",
+                        name: "热门推荐"
+                    }, {
+                        id: "bbb",
+                        name: "手机数码"
+                    }, {
+                        id: "ccc",
+                        name: "加用电器"
+                    }]
+                }
+            },
+            methods: {
+                btnClick(item) { //我们需要把子组件点击的信息告诉父组件，这样在父组件中显示相应的内容
+                    //this指每个按钮对象
+                    //子组件发射自定义事件
+                    //然后父组件接收自定义事件
+                    // console.log(item);
+                    //不能写成itemClick可能是为了区分自定义事件和默认事件
+                    this.$emit("item-click", item); //第二个参数item
+                }
+            },
+        };
+
+        const app = new Vue({
+            el: "#app",
+            data() {
+                return {
+
+                }
+            },
+            components: { //子组件
+                cmp //对象增强写法
+            },
+            methods: {
+                cmpClick(item) {
+                    console.log(item);
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

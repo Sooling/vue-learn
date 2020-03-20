@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app" v-once>
+        {{message}}
+        <h6>{{message}}</h6>
+        <!--
+            被定义了 v-once 指令的元素或组件（
+            包括元素或组件内的所有子孙节点）只能被渲染一次。
+            首次渲染后，即使数据发生变化，也不会被重新渲染。
+            一般用于静态内容展示。
+        -->
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "hello"
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>当前计数：{{ counter }}</h2>
+        <!-- <button type="button" v-on:click="counter++">+</button>
+			<button type="button" v-on:click="counter--">-</button> -->
+        <button type="button" v-on:click="increate">+</button>
+        <button type="button" @click="sub">-</button>
+        <!-- 下一种写法是v-on:click的语法糖 -->
+    </div>
+    <script src="../vue.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        const app = new Vue({
+            el: "#app",
+            data: {
+                counter: 0
+            },
+            methods: {
+                increate: function() {
+                    this.counter++;
+                    //为什么是this.counter？
+                    //内部做了proxy处理
+                },
+                sub: function() {
+                    this.counter--;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

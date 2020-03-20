@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="app">
+        <li :class="{red: index===select}" @click="changeColor(index)" v-for="(m,index) in movies">{{m}}</li>
+        <!--index的值是可以相互传递的！-->
+    </ul>
+    <script src="../vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                movies: ["海贼王", "火影忍者", "七龙珠", "凹凸世界"],
+                select: NaN
+            },
+            methods: {
+                changeColor: function(index) {
+                    console.log(index);
+                    this.select = index;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
